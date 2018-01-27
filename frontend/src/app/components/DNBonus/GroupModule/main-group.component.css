@@ -1,0 +1,36 @@
+/*
+
+#createGroup:hover #addGroup {
+stroke-width: 0.05em;
+}
+*/
+
+
+/*#createNode:hover{
+  fill: #124c5b;
+}*/
+
+.clickable{
+  cursor: pointer;
+}
+
+.clicked{
+  fill: #ffffff;
+}
+
+.node{
+  fill: #0e3944;
+}
+.node:hover{
+  fill: #124c5b;
+}
+
+#notification-node{
+  position: absolute;
+}
+.page-header{
+  text-align: center;
+  margin-top: 25px;
+  color: #ffffff;
+  font-family: header;
+}

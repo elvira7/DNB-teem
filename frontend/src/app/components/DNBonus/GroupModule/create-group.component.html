@@ -1,0 +1,10 @@
+  <div class="main-container">
+    <a class="item" routerLink="/main-group" routerLinkActive="active" id="back-to-main-group" >< BACK</a>
+    <form class="form create-group-form" (ngSubmit)="onSubmit(createGroupForm)" #createGroupForm="ngForm">
+      <input style="color:white" type="text" placeholder="TEEM Name" class="create-group-input" name="groupName" [ngModel]="this.groupName" required>
+      <br>
+      <button type="submit" id="create-group-btn">Start</button>
+    </form>
+  </div>
+
+

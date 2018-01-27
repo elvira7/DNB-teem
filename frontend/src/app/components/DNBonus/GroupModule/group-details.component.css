@@ -1,0 +1,245 @@
+svg > line {
+  stroke:rgb(255,255,255);
+  stroke-width:1;
+}
+
+#svg-wrap{
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height:100%;
+}
+
+#group-name{
+  font-family: header;
+  font-size: 26px;
+}
+.group-details a{
+  position: absolute;
+  left: 10px;
+  top: 30px;
+}
+
+.node:hover{
+  cursor: pointer;
+}
+
+#pot-node:hover {
+  cursor: default;
+}
+
+#pot-node circle:hover{
+  fill: #0e3944;
+}
+
+
+circle:hover{
+  fill: #124c5b;
+}
+#back-to-main-group{
+  color: #ffffff;
+  font-size: 16px;
+  margin-left: 20px;
+  padding-top: inherit;
+}
+.group-details{
+  font-family: 'PT Sans', sans-serif;
+}
+  /*--- Add money ---*/
+.group-input{
+  /*border-radius: 5%;*/
+  height: 60px;
+  width: 300px;
+  outline: 0;
+  border: solid;
+  border-width: 2px;
+  border-color: #ffffff;
+  background-color: white;
+}
+
+
+/*--- Leave the group ---*/
+
+.leave-btn{
+  margin-top: 30px;
+}
+
+.leave-btn > .dropdown-content-btn:first-child {
+  margin-right: 20px;
+}
+
+#leave-msg{
+  text-align: center;
+  font-size: 35px;
+  color: #ffffff;
+}
+
+.group-selector.overlay-visible {
+  filter: blur(5px);
+}
+
+.dropdown-content{
+  width: 100%;
+  font-size: 50px;
+  text-align: center;
+}
+.dropdown-content-btn{
+  /*border-radius: 5%;*/
+  border: none;
+  background-color: white;
+  color: #0e3944;
+  width: 90px;
+  height: 40px;
+  font-size: 22px;
+}
+.dropdown-content-btn:hover{
+  background-color: #e3e4e5;
+}
+
+.input-btn {
+  height: 60px;
+  font-size: 52px;
+}
+
+/*--- Add member ----*/
+#add-member-input{
+  width: 330px;
+}
+/*--- Pay back---*/
+#payback-dropdown{
+  max-height: 100%;
+  overflow-y: scroll;
+}
+.content{
+  font-family: header;
+  font-size: 20px;
+  color: #ffffff;
+}
+#pay-back-btn{
+  margin: 20px 100px;
+  background-color: #0e3944;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  width: 120px;
+  height: 45px;
+  line-height: 45px;
+  font-family: header;
+  font-size: 18px;
+}
+#pay-back-btn:hover{
+  background-color: #104451;
+}
+/*--- My money---*/
+#my-money-dropdown{
+  color: #ffffff;
+  font-size: 24px;
+  margin: 5% auto;
+  width:300px;
+  height: 200px;
+}
+
+.added-money-dropdown-content{
+  width: 350px;
+  height: 35px;
+  border-width: 0.5px;
+  border-bottom: #ffffff solid;
+  margin-top: 10px;
+  display: flex;
+}
+.added-money-dropdown-content > div {
+  flex: 1;
+  line-height: 35px;
+}
+.left-column {
+  text-align: left;
+}
+.user-pot{
+  text-align: right;
+}
+
+/*-- Members--*/
+
+#show-members ul{
+  font-size: 24px;
+  display: inline-block;
+  font-family: header;
+  color: #ffffff;
+  white-space: nowrap;
+}
+#show-members ul li {
+  line-height: 32px;
+}
+#show-members{
+  width: 100%;
+}
+
+/*-- What to show --*/
+
+
+
+#dropdown-overlay {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow-y: hidden;
+  transition: 0.5s;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+#dropdown-overlay .remove.icon {
+  position: absolute;
+  color: white;
+  right: 5px;
+  top: 20px;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+#dropdown-overlay .remove.icon:hover {
+  color: lightgray;
+}
+
+#dropdown-overlay.invest, #dropdown-overlay.leave, #dropdown-overlay.withdraw,
+#dropdown-overlay.add-member, #dropdown-overlay.my-money, #dropdown-overlay.members, #dropdown-overlay.payback {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+#invest-dropdown, #leave-dropdown, #withdraw-dropdown, #add-member-dropdown, #my-money-dropdown, #members-dropdown, #payback-dropdown {
+  display: none;
+}
+#dropdown-overlay.invest #invest-dropdown {
+  display: block;
+}
+#dropdown-overlay.leave #leave-dropdown {
+  display: block;
+}
+#dropdown-overlay.withdraw #withdraw-dropdown{
+  display: block;
+}
+#dropdown-overlay.add-member #add-member-dropdown{
+  display: block;
+}
+#dropdown-overlay.my-money #my-money-dropdown{
+  display: block;
+}
+#dropdown-overlay.members #members-dropdown{
+  display: block;
+}
+#dropdown-overlay.payback #payback-dropdown{
+  display: block;
+}
+/*-----------------*/

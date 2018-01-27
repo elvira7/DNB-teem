@@ -1,0 +1,27 @@
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui teal image header">
+      <div style="margin-top: 38%" class="content">
+        <img style="height: 100px" src=".../../../../resources/icons/greenlogo.png">
+      </div>
+    </h2>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="ui large form">
+      <div class="ui stacked segment">
+        <div class="field">
+          <input type="text" required [(ngModel)]="model.telephone" ngControl="telephone" name="telephone" placeholder="Phone Number">
+        </div>
+        <div class="field">
+          <input type="password" required [(ngModel)]="model.password" ngControl="password" name="password" placeholder="Password">
+        </div>
+        <span *ngIf="this.error" style="color: red">{{this.errorMsg}}</span>
+        <button *ngIf="this.loading" class="ui fluid loading large teal submit button">Loading</button>
+        <button *ngIf="!this.loading" type="submit" class="ui fluid large teal submit button" [disabled]="!loginForm.form.valid">Log In</button>
+      </div>
+
+    </form>
+
+    <div class="ui message">
+      New to us? <a routerLink="/register" routerLinkActive="active"> Sign Up</a>
+    </div>
+  </div>
+</div>

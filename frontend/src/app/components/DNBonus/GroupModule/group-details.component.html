@@ -1,0 +1,194 @@
+<div class="group-selector ui center aligned icon header group-details"
+     [ngClass]="{'overlay-visible': overlayVisible }">
+  <a class="item" routerLink="/main-group" routerLinkActive="active" id="back-to-main-group">< BACK</a>
+  <h3 id="group-name" class="item" style="color: white">{{this.selectedGroup.name}}</h3>
+
+  <div id="svg-wrap">
+    <svg width="100%" height="100%">
+      <svg id="invest-node" class="node dropbtn" (click)="toggleOverlay(true, 'invest')">
+        <line x1="20%" y1="15%" x2="50%" y2="48%"></line>
+        <circle r="40" cx="20%" cy="15%" stroke="#ffffff" stroke-width="2" fill="#0e3944"></circle>
+        <text stroke="#ffffff" stroke-width="0.01em" text-anchor="middle" x="20%" y="14%" font-size="0.8em"
+              fill="#ffffff" dx="0.03em"
+              dy="0.2em">Add
+        </text>
+        <text stroke="#ffffff" stroke-width="0.01em" text-anchor="middle" x="20%" y="17%" font-size="0.8em"
+              fill="#ffffff" dx="0.03em"
+              dy="0.2em">Money
+        </text>
+      </svg>
+
+
+      <svg id="my-money-node" class="node" (click)="toggleOverlay(true, 'my-money')">
+        <line x1="50%" y1="20%" x2="50%" y2="48%"></line>
+        <circle r="40" cx="50%" cy="20%" stroke="#ffffff" stroke-width="2" fill="#0e3944"></circle>
+        <text stroke="#ffffff" stroke-width="0.01em" text-anchor="middle" x="50%" y="20%" font-size="0.8em"
+              fill="#ffffff" dx="0.03em"
+              dy="0.2em">My Money
+        </text>
+      </svg>
+
+      <svg id="leave-node" class="node" (click)="toggleOverlay(true, 'leave')">
+        <line x1="40%" y1="75%" x2="50%" y2="48%"></line>
+        <circle r="25" cx="40%" cy="75%" stroke="#ffffff" stroke-width="2" fill="#0e3944"></circle>
+        <text stroke="#ffffff" stroke-width="0.01em" text-anchor="middle" x="40%" y="75%" font-size="0.8em"
+              fill="#ffffff" dx="0.03em"
+              dy="0.2em">Leave
+        </text>
+      </svg>
+
+      <svg id="members-node" class="node" (click)="toggleOverlay(true, 'members')">
+        <line x1="75%" y1="40%" x2="50%" y2="48%"></line>
+        <circle r="40" cx="75%" cy="40%" stroke="#ffffff" stroke-width="2" fill="#0e3944"></circle>
+        <text stroke="#ffffff" stroke-width="0.01em" text-anchor="middle" x="75%" y="40%" font-size="0.8em"
+              fill="#ffffff" dx="0.03em"
+              dy="0.2em">Members
+        </text>
+      </svg>
+
+      <svg id="add-member-node" class="node" (click)="checkGroupMemberLimit()">
+        <line x1="20%" y1="50%" x2="50%" y2="48%"></line>
+        <circle r="40" cx="20%" cy="50%" stroke="#ffffff" stroke-width="2" fill="#0e3944"></circle>
+        <text stroke="#ffffff" stroke-width="0.01em" text-anchor="middle" x="20%" y="49%" font-size="0.8em"
+              fill="#ffffff" dx="0.03em"
+              dy="0.2em">Add
+        </text>
+        <text stroke="#ffffff" stroke-width="0.01em" text-anchor="middle" x="20%" y="52%" font-size="0.8em"
+              fill="#ffffff" dx="0.03em"
+              dy="0.2em">Member
+        </text>
+      </svg>
+
+      <svg id="payback-money-node" class="node" (click)="toggleOverlay(true, 'payback')">
+        <line x1="75%" y1="65%" x2="50%" y2="48%"></line>
+        <circle r="40" cx="75%" cy="65%" [attr.stroke]="paybackNodeOutlineColour" stroke-width="2" fill="#0e3944"></circle>
+        <text stroke="#ffffff" stroke-width="0.01em" text-anchor="middle" x="75%" y="64%" font-size="0.8em"
+              fill="#ffffff" dx="0.03em"
+              dy="0.2em">Pay Back
+        </text>
+        <text stroke="#ffffff" stroke-width="0.01em" text-anchor="middle" x="75%" y="67%" font-size="0.8em"
+              fill="#ffffff" dx="0.03em"
+              dy="0.2em">Money
+        </text>
+      </svg>
+
+      <svg id="withdraw-money-node" class="node" (click)="toggleOverlay(true, 'withdraw')">
+        <line x1="80%" y1="10%" x2="50%" y2="48%"></line>
+        <circle r="40" cx="80%" cy="12%" stroke="#ffffff" stroke-width="2" fill="#0e3944"></circle>
+        <text stroke="#ffffff" stroke-width="0.01em" text-anchor="middle" x="80%" y="11%" font-size="0.8em"
+              fill="#ffffff" dx="0.03em"
+              dy="0.2em">Borrow
+        </text>
+        <text stroke="#ffffff" stroke-width="0.01em" text-anchor="middle" x="80%" y="14%" font-size="0.8em"
+              fill="#ffffff" dx="0.03em"
+              dy="0.2em">Money
+        </text>
+      </svg>
+
+      <svg id="pot-node" class="node">
+        <circle id="create" r="60" cx="50%" cy="48%" stroke="#ffffff" stroke-width="2" fill="#0e3944"></circle>
+        <text stroke="#ffffff" stroke-width="0.01em" text-anchor="middle" x="50%" y="47%" font-size="1em" fill="#ffffff"
+              dx="0.03em"
+              dy="0.2em">{{availableMoney}},-
+        </text>
+        <text stroke="#ffffff" stroke-width="0.01em" text-anchor="middle" x="50%" y="51%" font-size="0.7em"
+              fill="#ffffff" dx="0.03em"
+              dy="0.2em">Available
+        </text>
+      </svg>
+
+    </svg>
+  </div>
+</div>
+
+<div id="dropdown-overlay" class="dropdown-overlay">
+
+  <!--- Add money to the pot -->
+  <div id="invest-dropdown" class="dropdown-content">
+    <input type="text" id="invest-money-input" class="group-input" placeholder="Amount" #invest>
+    <button type="submit" id="invest-money-btn" class="dropdown-content-btn input-btn" (click)="addMoney(invest.value)">
+      +
+    </button>
+    <i class="remove icon" (click)="toggleOverlay(false)"></i>
+  </div>
+
+  <!--- Leave the group -->
+  <div id="leave-dropdown" class="dropdown-content">
+    <h3 id="leave-msg">Are you sure you want to <br/>leave the TEEM?</h3>
+    <div class="leave-btn">
+      <button type="button" class="dropdown-content-btn" id="yes-btn" (click)="leaveGroup()">YES</button>
+      <button type="button" class="dropdown-content-btn" id="no-btn" (click)="toggleOverlay(false)">NO</button>
+    </div>
+  </div>
+
+  <!--- Withdraw money from the pot -->
+  <div id="withdraw-dropdown" class="dropdown-content">
+    <input type="text" id="withdraw-money-input" class="group-input" placeholder="Amount" #borrow>
+    <button type="submit" id="withdraw-money-btn" class="dropdown-content-btn input-btn"
+            (click)="borrowMoney(borrow.value)">+
+    </button>
+    <i class="remove icon" (click)="toggleOverlay(false)"></i>
+  </div>
+
+
+  <!--- Payback -->
+
+  <div id="payback-dropdown" class="dropdown-content">
+    <div class="ui middle aligned divided list">
+      <h2 style="color:white" *ngIf="_loans?.length < 1">You have no loans</h2>
+      <div class="item" *ngFor="let _l of _loans; trackBy: trackByLoan">
+
+        <h4 class="content">
+          <span style="color:red">{{_l.money}}</span> kr due in {{_l.dueDate}} day(s)
+        </h4>
+          <button type="submit" (click)="payBackLoan(_l.loanId)" id="pay-back-btn">PAY BACK</button>
+      </div>
+    </div>
+
+    <i class="remove icon" (click)="toggleOverlay(false)"></i>
+  </div>
+
+
+  <!--- Add members -->
+  <div id="add-member-dropdown" class="dropdown-content">
+    <input type="text" id="add-member-input" class="group-input" [(ngModel)]="this.invitedUser"
+           placeholder="Phone Number">
+    <button type="submit" id="add-member-btn" class="dropdown-content-btn input-btn" (click)="inviteToGroup()">+
+    </button>
+    <i class="remove icon" (click)="toggleOverlay(false)"></i>
+  </div>
+
+
+  <!--- My money -->
+  <div id="my-money-dropdown" class="dropdown-content">
+
+    <div id="added-money" class="added-money-dropdown-content">
+      <div class="left-column">My Investments:</div>
+      <div class="user-pot">{{invested}},-</div>
+    </div>
+    <div id="my-part" class="added-money-dropdown-content">
+      <div class="left-column">My % of Total:</div>
+      <div class="user-pot">{{this.userPot.potPart}}%</div>
+    </div>
+    <div id="my-earnings" class="added-money-dropdown-content">
+      <div class="left-column">My Interests:</div>
+      <div class="user-pot">{{interests}},-</div>
+    </div>
+
+    <i class="remove icon" (click)="toggleOverlay(false)"></i>
+  </div>
+
+  <!--- Show members -->
+  <div id="members-dropdown" class="dropdown-content">
+    <h2 style="color:white" *ngIf="_members?.length < 1">No other members</h2>
+    <div id="show-members">
+    <ul>
+      <li *ngFor="let _m of this._members" >
+        <div class="left-column">{{_m.firstName}} {{_m.lastName}}</div>
+      </li>
+    </ul>
+    </div>
+    <i class="remove icon" (click)="toggleOverlay(false)"></i>
+  </div>
+
+</div>

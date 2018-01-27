@@ -1,0 +1,36 @@
+
+  <h2 class="page-header">RECRUIT FRIEND</h2>
+
+
+<div id="main-container">
+
+  <div id="text-add-friend">
+    Recruit your friends to DNB, so you and<br>
+    your friends can enjoy the benefits of being<br>
+    DNB customers in TEEM. Earn rewards by collecting<br>
+    points and spending them on our marketplace<br>
+
+    <h4>How does it work?</h4><br>
+    Simple, just fill out the form to the left and<br>
+    send the invitation. Your friend will receive an<br>
+    email with a reference code and instructions on how<br>
+    to register and becoming a DNB customer.<br>
+    For each referred friend, you will earn 500 points!
+
+  </div>
+
+  <div id="add-friend-form">
+    <form (ngSubmit)="sendMessage()">
+      <input id="firstname" name="firstname" class="form-content" placeholder="FRIEND'S FIRSTNAME"
+             [(ngModel)]="form.lastName" required>
+      <input id="lastname" name="lastname" class="form-content" placeholder="FRIEND'S LASTNAME"
+             [(ngModel)]="form.firstName" required>
+      <input id="email" name="email" class="form-content" placeholder="FRIEND'S EMAIL"
+             [(ngModel)]="form.email" required
+             pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+      <textarea id="message" name="message" placeholder="PERSONAL MESSAGE:" class="form-content" rows="4"
+                [(ngModel)]="form.message"></textarea>
+      <input type="submit" id="add-friend-btn" value="SEND INVITATION">
+    </form>
+  </div>
+</div>

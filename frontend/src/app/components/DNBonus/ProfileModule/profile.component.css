@@ -1,0 +1,52 @@
+.ui.center.aligned.icon.header{
+  color: #ffffff;
+}
+
+.left-column {
+  text-align: left;
+}
+
+#dnb-customer .left-column {
+  flex: 5;
+}
+
+.user-info-db{
+  text-align: right;
+}
+
+#user-info{
+  margin: 5% auto;
+  width:300px;
+  height: 200px;
+  color: #ffffff;
+
+}
+.user-info-content{
+  width: 300px;
+  height: 35px;
+  border-width: 0.5px;
+  border-bottom: #ffffff solid;
+  margin-top: 10px;
+  display: flex;
+}
+
+.user-info-content > div {
+  flex: 1;
+  line-height: 35px;
+}
+
+#change-user-info-btn{
+  margin: 20px 100px;
+  background-color: #0e3944;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  width: 90px;
+  height: 35px;
+}
+#change-user-info-btn:hover{
+  background-color: #104451;
+}
+
+

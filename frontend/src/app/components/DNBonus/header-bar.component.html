@@ -1,0 +1,20 @@
+<div class="ui inverted fixed menu">
+
+  <div class="ui secondary pointing menu ">
+    <div class="item">
+      <img src="../resources/icons/logo.png" style="width: 60px; margin-left: 40%;">
+    </div>
+  </div>
+
+  <div>
+    <a class="item profile" routerLink="/stats">
+      <p id="name-span">{{user?.firstName}} {{user?.lastName}}</p>
+      <p id="score-span" style="color:#f06d00">Points: {{score}} Money: {{bankAccount}}</p>
+    </a></div>
+
+  <div class="right menu ">
+    <a class="item" routerLink="/login" routerLinkActive="active" (click)="logout()">
+      Log out
+    </a>
+  </div>
+</div>

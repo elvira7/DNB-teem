@@ -1,0 +1,10 @@
+<svg (click)="clicked">
+  <line [attr.x1]="button_x+'%'" [attr.y1]="button_y+'%'" x2="50%" y2="48%" style="stroke:rgb(255,255,255);stroke-width:1"></line>
+  <circle [attr.r]="button_radius" [attr.cx]="button_x+'%'" [attr.cy]="button_y+'%'" stroke="#ffffff" stroke-width="2">
+  </circle>
+  <text [attr.font-size]="font_size" stroke="#ffffff" stroke-width="0.01em" text-anchor="middle"
+            [attr.x]="button_x+'%'" [attr.y]="button_y+'%'"
+            fill="#ffffff" dx="0.03em" dy="0.2em">
+    {{text}}
+  </text>
+</svg>

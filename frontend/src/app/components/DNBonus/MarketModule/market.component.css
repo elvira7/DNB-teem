@@ -1,0 +1,24 @@
+.page-header{
+  text-align: center;
+  margin-top: 25px;
+  color: #ffffff;
+  font-family: header;
+}
+#shop-text{
+  font-family: text;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 18px;
+
+}
+.shop-logo{
+  display: flex;
+  width: 100%;
+}
+img{
+ margin: 10px;
+  width: 270px;
+  height: 166px;
+}
